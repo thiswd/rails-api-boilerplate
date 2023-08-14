@@ -43,9 +43,18 @@ group :development, :test do
   gem "rubocop-rails"
   gem "rubocop-rspec"
   gem "rubocop"
+  gem "rspec-rails"
+  gem "faker"
+  gem "pry"
+  gem "byebug"
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :test do
+  gem "factory_bot_rails"
+  gem "shoulda-matchers"
 end
