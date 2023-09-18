@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: 'postgres:15.3'
-    container_name: cep-db
+    container_name: db
     volumes:
       - 'postgres:/var/lib/postgresql/data'
     ports:
@@ -21,7 +21,7 @@ services:
     restart: always
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    container_name: cep-api
+    container_name: api
     ports:
       - '3000:3000'
     environment:
@@ -33,7 +33,7 @@ services:
 
   redis:
     image: 'redis:latest'
-    container_name: cep-rds
+    container_name: rds
     ports:
       - '6379:6379'
     volumes:
@@ -43,7 +43,7 @@ services:
 
 networks:
   backend:
-    name: cep_on_rails_network
+    name: rails_network
 
 volumes:
   postgres:
